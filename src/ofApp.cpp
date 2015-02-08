@@ -1,39 +1,6 @@
 #include "ofApp.h"
 #define NUM_OF_POLYGONS 200
 
-class Polygon3d {
-private:
-    ofPoint mPolygonPosition = ofPoint(0,0,0);
-    int mPolygonType = 0; //0:Box 1:Sphere
-    int mPolygonSize = 0; //10~100
-public:
-    Polygon3d(){}; //Constructor
-    ~Polygon3d(){}; //Destructor
-    void setPolygonPosition(float x, float y, float z){
-        mPolygonPosition.set(x, y, z);
-    }
-    void setPolygonPosition(ofPoint position){
-        mPolygonPosition = position;
-    }
-    void setPolygonType(int id){
-        mPolygonType = id;
-    }
-    void setPolygonSize(int size){
-        mPolygonSize = size;
-    }
-    ofPoint getPolygonPosition(){
-        return mPolygonPosition;
-    }
-    int getPolygonType(){
-        return mPolygonType;
-    }
-    int getPolygonSize(){
-        return mPolygonSize;
-    }
-};
-
-vector<Polygon3d *> polygons;
-
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetFrameRate(60);
