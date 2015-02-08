@@ -18,5 +18,13 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+    
+    ofBoxPrimitive boxPrimitive;
+    ofSpherePrimitive spherePrimitive;
+    ofCamera camera;
+    
+    float objectSizeScale = 1.0;
+    double cameraSpeed = 0.0;
+    double cameraPosition = 0.0;
+    bool accelFlag = false;
 };
