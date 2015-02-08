@@ -51,7 +51,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    objectSizeScale = 1 + 0.3*pow(sin((double)ofGetElapsedTimeMillis()/100),6.0);
+    objectSizeScale = 1 + 0.3 * pow(sin((double)ofGetElapsedTimeMillis()/100),6.0);
 
     if (accelFlag) cameraSpeed += 0.005;
     else if (cameraSpeed > 0) cameraSpeed -= 0.020;
@@ -68,7 +68,6 @@ void ofApp::draw(){
     
     ofPushMatrix();
     ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
-    
     camera.begin();
     
     for (int i = 0; i<polygons.size(); i++) {
@@ -99,6 +98,8 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
     if (key == ' '){
         accelFlag = true;
+    } else if (key == 'f') {
+        ofToggleFullscreen();
     }
 }
 
