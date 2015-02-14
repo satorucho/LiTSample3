@@ -1,11 +1,21 @@
 #include "ofApp.h"
 #define NUM_OF_POLYGONS 200
+#define BPM 128
+#define SOUND_NAME "perfume.mp3"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetFrameRate(60);
     ofSetSphereResolution(100);
+    ofSetBoxResolution(1, 1, 1);
     ofEnableDepthTest(); //enable depth test (for drawing correctly)
+    
+    if (SOUND_NAME){
+        soundPlayer.loadSound(SOUND_NAME);
+        soundPlayer.setLoop(true);
+        soundPlayer.play();
+    }
+    
     for (int i=0; i<NUM_OF_POLYGONS; i++){
         polygons.push_back(new Polygon3d());
     }
@@ -18,7 +28,8 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    objectSizeScale = 1 + 0.3 * pow(sin((double)ofGetElapsedTimeMillis()/100),6.0);
+    double rad = ofMap(ofGetElapsedTimeMillis()%(int)(60000/BPM), 0.0f, 60000.0f/BPM, 0.0f, M_PI);
+    objectSizeScale = 1 + 0.3 * pow(sin(rad),6.0);
 
     if (accelFlag) cameraSpeed += 0.005;
     else if (cameraSpeed > 0) cameraSpeed -= 0.020;

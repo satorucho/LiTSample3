@@ -56,6 +56,7 @@ class ofApp : public ofBaseApp{
     ofBoxPrimitive boxPrimitive;
     ofSpherePrimitive spherePrimitive;
     ofCamera camera;
+    ofSoundPlayer soundPlayer;
     
     vector<Polygon3d *> polygons;
     
